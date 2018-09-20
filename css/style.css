@@ -5,7 +5,11 @@
     font-family: 'Trirong', serif;
 }
 
-/**********   Colors ****************/
+ul {
+    list-style: none;
+}
+
+/**********   COLORS ****************/
 :root {
     --white-color: #fff;
     --dark-blue: #062D36;
@@ -39,7 +43,14 @@ main {
 }
 
 
+/**********   images and icons sizes ****************/
 
+.bell,
+#user img,
+.nav-icon {
+    height: 40px;
+    width: 40px;
+}
 
 
 /**********   header ****************/
@@ -61,15 +72,9 @@ header {
     color: var(--white-color);
 }
 
-.bell,
-#user img {
-    height: 40px;
-    width: 40px;
-}
-
 
 .bell{
-    margin-right: 25px;
+    margin-right: 10px;
 }
 
 #user {
@@ -92,3 +97,23 @@ header {
 }
 
 
+/**********  NAV ****************/
+
+nav ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+nav li {
+    width: 100%;
+    margin: 10px 0;
+    text-align: center;
+}
+
+nav li:hover {
+    border-left: 2px solid var(--light-blue);
+}
+
+
+/**********  SEARCH BAR ****************/
