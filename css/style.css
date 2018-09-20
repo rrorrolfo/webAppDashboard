@@ -171,3 +171,39 @@ nav li:hover {
 #search_input::placeholder {
     padding-left: 4%;
 }
+
+/**********  ALERTS ****************/
+
+#alerts {
+    margin: 15px 20px;
+    padding: 10px;
+    background-color: var(--light-blue);
+    border-radius: 5px;
+    color: var(--light-white);
+    position: relative;
+}
+
+#alerts span {
+    font-weight: 600;
+    margin-right: 10px;
+}
+
+#alerts p {
+    margin: 0;
+    font-size: .8rem;
+}
+
+#close_alert {
+    position: absolute;
+    right: 0;
+    top: 7.5px;
+}
+
+/**********  POINTS CHART ****************/
+
+#area-chart {
+    width: 100%;
+    height: 400px;
+    padding: 0 20px;
+    border: 1px solid red;
+}
