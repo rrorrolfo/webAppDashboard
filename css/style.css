@@ -11,7 +11,9 @@ ul {
 
 /**********   COLORS ****************/
 :root {
-    --white-color: #fff;
+    --white-color: rgb(253, 249, 249);
+    --light-white: rgb(241, 240, 240);
+    --light-grey: rgb(216, 216, 216);
     --dark-blue: #062D36;
     --light-blue: #107B93;
 }
@@ -23,9 +25,10 @@ ul {
 /**********   GRID LAYOUT ****************/
 
 body {
+    background-color: var(--light-white);
     display: grid;
-    grid-template-columns: 80px 1fr;
-    grid-template-rows: 80px 1fr;
+    grid-template-columns: 70px 1fr;
+    grid-template-rows: 70px 1fr;
     grid-template-areas: 
     "header header"
     "nav main";
@@ -48,18 +51,24 @@ main {
 .bell,
 #user img,
 .nav-icon {
-    height: 40px;
-    width: 40px;
+    height: 30px;
+    width: 30px;
 }
 
+/**********   FLEX DISPLAYS AND CENTER ITEMS ****************/
+
+header,
+#user,
+#search_bar h2,
+#search_bar div {
+    display: flex;
+    align-items: center;
+}
 
 /**********   header ****************/
 header {
     grid-area: header;
-    display: flex;
     background-color: var(--light-blue);
-    align-items: center;
-    
 }
 
 #app_name{
@@ -78,8 +87,6 @@ header {
 }
 
 #user {
-    display:flex;
-    align-items: center;
     padding-right: 20px;
 }
 
@@ -111,9 +118,56 @@ nav li {
     text-align: center;
 }
 
+.nav-icon {
+    padding-top: 5px;
+}
+
 nav li:hover {
-    border-left: 2px solid var(--light-blue);
+    border-left: 3px solid var(--light-blue);
 }
 
 
 /**********  SEARCH BAR ****************/
+
+#search_bar {
+    display: flex;
+    height: 70px;
+}
+
+#search_bar h2 {
+    font-size: 1.2em;
+    font-weight: 200;
+    height: 100%;
+    padding: 0 20px;
+    margin: 0;
+    background-color: var(--white-color);
+}
+
+#search_input {
+    height: 40px;
+    width: 40%;
+    border-radius: 5px;
+    border: 2px solid var(--light-grey);
+    margin-left: auto;
+    position: relative;
+}
+
+#search_bar div {
+    width: 90%;
+    height: 100%;
+    border-bottom: 2px solid var(--light-grey);
+    border-left: 2px solid var(--light-grey);
+    text-align: right;
+    padding-right: 20px;
+}
+
+#magnifier-image {
+    height: 15px;
+    width: 15px;
+    position: absolute;
+    right: 4%;
+}
+
+#search_input::placeholder {
+    padding-left: 4%;
+}
