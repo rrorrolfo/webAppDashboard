@@ -1,4 +1,24 @@
+
+///////////   VARIABLES  /////////////////
+
 const area_chart = document.querySelector("#area-chart");
+
+///////////   Alerts  /////////////////
+
+const $alert_message = $("#alerts");
+const $close_alert = $("#close_alert");
+
+$(document).ready($alert_message.show({
+    duration: 900
+}))
+
+$close_alert.click(() => {
+    $alert_message.hide();
+ //   $close_alert.parent().remove("div");
+});
+
+
+////////////// Line chart /////////////
 
 const myLineChart = new Chart(area_chart, {
     type: 'line',
@@ -17,4 +37,8 @@ const myLineChart = new Chart(area_chart, {
 
 });
 
+
+
 area_chart.textContent = myLineChart;
+
+
