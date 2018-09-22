@@ -40,7 +40,7 @@ $close_alert.click(() => {
     options: {
             legend: { display: false },
             title:{
-                display: true,
+                display: false,
                 text: 'TRAFFIC'
               }
     }
@@ -62,7 +62,7 @@ new Chart(document.querySelector("#donut_chart"), {
     },
     options: {
       title: {
-        display: true,
+        display: false,
         text: 'MOBILE USERS'
       }
     }
@@ -78,8 +78,9 @@ new Chart(document.querySelector("#bar_chart"), {
       labels: ["S", "M", "T", "W", "T", "F", "S"],
       datasets: [
         {
-          label: "Population (millions)",
+          label: "Traffic",
           backgroundColor: ["#107B93","#107B93","#107B93","#107B93","#107B93","#107B93","#107B93"],
+          hoverBackgroundColor: "#062D36",
           data: [1345,2895,1935,2101,1875,2500, 2978]
         }
       ]
@@ -87,7 +88,7 @@ new Chart(document.querySelector("#bar_chart"), {
     options: {
       legend: { display: false },
       title: {
-        display: true,
+        display: false,
         text: 'DAILY TRAFFIC'
       }
     }

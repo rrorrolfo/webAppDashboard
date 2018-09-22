@@ -9,6 +9,12 @@ ul {
     list-style: none;
 }
 
+h3 {
+    padding-left: 20px;
+    font-size: 1rem;
+    margin-bottom: 5px;
+}
+
 /**********   COLORS ****************/
 :root {
     --white-color: rgb(253, 249, 249);
@@ -21,7 +27,7 @@ ul {
 /**********   GRID LAYOUT ****************/
 
 body {
-    background-color: var(--light-white);
+    background-color: var(--white-color);
     display: grid;
     grid-template-columns: 70px 1fr;
     grid-template-rows: 70px 1fr;
@@ -56,7 +62,8 @@ main {
 header,
 #user,
 #search_bar h2,
-#search_bar div {
+#search_bar div,
+.channel_stats {
     display: flex;
     align-items: center;
 }
@@ -162,6 +169,7 @@ nav li:hover {
     border-left: 2px solid var(--light-grey);
     text-align: right;
     padding-right: 20px;
+    background-color: var(--light-white);
 }
 
 #magnifier-image {
@@ -230,5 +238,65 @@ nav li:hover {
     padding: 10px 20px 0;
 }
 
-/**********  BAR CHART ****************/
+/**********  SOCIAL MEDIA INFO ****************/
 
+#social_stats {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 0 10px;
+}
+
+.channel_stats {
+    height: 90px;
+    flex-basis: 30%;
+    background-color: var(--light-white);
+    border-radius: 5px;
+    border: 2px solid var(--light-grey);
+}
+
+#social_stats h3 {
+    flex-basis: 100%;
+    padding-left: 10px;
+    margin-bottom: 20px;
+}
+
+.media_icon_1 {
+    height: 30px;
+    width: 30px;
+    margin-top: 8px;
+}
+
+.media_icon_2 {
+    height: 25px;
+    width: 25px;
+    margin-top: 13px;
+}
+
+.icon_wrapper {
+    height: 50px;
+    width: 50px;
+    background-color: var(--light-blue);
+    border-radius: 50%;
+    margin: 0 10px;
+    text-align: center;
+}
+
+.icon_wrapper path{
+    fill: #FFF;
+}
+
+.media_wrapper h4 {
+    font-size: .9rem;
+    color: var(--light-blue);
+}
+
+.media_wrapper h4,
+.media_wrapper p {
+    margin: 0;
+}
+
+.media_wrapper p {
+    margin-top: -10px;
+    font-size: 1.6rem;
+}
