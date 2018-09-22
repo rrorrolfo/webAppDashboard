@@ -104,34 +104,46 @@ const new_members = [
     name: "Josh Silver",
     email: "josh-silver@example.com ",
     dateJoined: new Date('September 15, 2018'),
-    photo: "../images/josh.jpg"
+    photo: "images/josh.jpg"
     },
     {
       name: "Anna Gold",
       email: "anna-gold@example.com ",
       dateJoined: new Date('September 16, 2018'),
-      photo: "../images/anna.jpg"
+      photo: "images/anna.jpg"
     },
     {
       name: "Joaquim Cooper",
       email: "joaquim-cooper@example.com ",
       dateJoined: new Date('September 16, 2018'),
-      photo: "../images/joaquim.jpg"
+      photo: "images/joaquim.jpg"
     },
     {
       name: "Lyona Vera",
       email: "lyonavera@example.com ",
       dateJoined: new Date('September 17, 2018'),
-      photo: "../images/lyona.jpg"
+      photo: "images/lyona.jpg"
         }
 ]
 
 
 function printMembers() {
+  const newMembers = [];
+  let list = " ";
+
   for(let i = 0; i < new_members.length; i += 1) {
-    
-    console.log(new_members[i]["name"]);
+    list = '<div class="member">'
+    list += '<img src="' + new_members[i]["photo"] +'">'
+    list += '<div class="member_data_wrapper">'
+    list += '<p class="member_name">'+ new_members[i]["name"] + '</p>'
+    list += '<p class="member_email">' + new_members[i]["email"] + '</p>'
+    list += '</div>'
+    list += '<p class="date_joined">' + new_members[i]["dateJoined"].getDate() + '/' + new_members[i]["dateJoined"].getMonth() + '/' + new_members[i]["dateJoined"].getFullYear() + '</p>'
+    list += '</div>'
+
+    newMembers.push(list);
   }
+  output_members.innerHTML = newMembers;
 }
 
 printMembers();
