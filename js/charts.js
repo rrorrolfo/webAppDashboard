@@ -93,3 +93,45 @@ new Chart(document.querySelector("#bar_chart"), {
       }
     }
 });
+
+
+//////////////  NEW MEMBERS SECTION /////////////
+
+const output_members = document.querySelector("#output_members")
+
+const new_members = [
+    {
+    name: "Josh Silver",
+    email: "josh-silver@example.com ",
+    dateJoined: new Date('September 15, 2018'),
+    photo: "../images/josh.jpg"
+    },
+    {
+      name: "Anna Gold",
+      email: "anna-gold@example.com ",
+      dateJoined: new Date('September 16, 2018'),
+      photo: "../images/anna.jpg"
+    },
+    {
+      name: "Joaquim Cooper",
+      email: "joaquim-cooper@example.com ",
+      dateJoined: new Date('September 16, 2018'),
+      photo: "../images/joaquim.jpg"
+    },
+    {
+      name: "Lyona Vera",
+      email: "lyonavera@example.com ",
+      dateJoined: new Date('September 17, 2018'),
+      photo: "../images/lyona.jpg"
+        }
+]
+
+
+function printMembers() {
+  for(let i = 0; i < new_members.length; i += 1) {
+    
+    console.log(new_members[i]["name"]);
+  }
+}
+
+printMembers();

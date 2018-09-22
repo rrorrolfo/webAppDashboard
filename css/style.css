@@ -245,6 +245,7 @@ nav li:hover {
     flex-wrap: wrap;
     justify-content: space-around;
     padding: 0 10px;
+    padding-bottom: 16px;
 }
 
 .channel_stats {
@@ -292,11 +293,45 @@ nav li:hover {
 }
 
 .media_wrapper h4,
-.media_wrapper p {
+.media_wrapper p,
+.member_email,
+.member_name,
+.date_joined {
     margin: 0;
 }
 
 .media_wrapper p {
     margin-top: -10px;
     font-size: 1.6rem;
+}
+
+/**********  NEW MEMBERS ****************/
+
+.member {
+    display: flex;
+    margin: 0;
+    border-bottom: 2px solid var(--light-white);
+    padding: 10px 0 10px 20px;
+}
+
+.member img {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    margin-right: 15px;
+    
+}
+
+.member_data_wrapper {
+    flex-basis: 40%;
+    margin-right: auto;
+}
+
+.member_email {
+    color: var(--light-blue);
+    margin-top: -10px;
+}
+
+.date_joined{
+    flex-basis: 20%;
 }
