@@ -372,3 +372,35 @@ nav li:hover {
 .activity_details:hover {
     cursor: pointer;
 }
+
+/**********  MESSAGE TO USER ****************/
+
+#message_user {
+    display: flex;
+    flex-direction: column;
+}
+
+#message_user input,
+#message_user textarea,
+#message_user button {
+    margin: 8.5px 20px;
+    border-radius: 5px;
+    padding: 7px;
+    
+}
+
+#message_user input,
+#message_user textarea {
+    border: 1px solid var(--light-grey);
+}
+
+#message_user textarea {
+    height: 120px;
+}
+
+#send_message {
+    background-color: var(--light-blue);
+    color: var(--white-color);
+    border: none;
+    padding: 10px;
+}

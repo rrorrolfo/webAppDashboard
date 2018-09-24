@@ -225,29 +225,23 @@
 
         </section>
 
-        <section id="recent_activity">
+        <section id="recent_activity" >
             <h3>RECENT ACTIVITY</h3>
             <div id="output_activity">
-                    <div class="member">
-                            <img src="images/anna.jpg">
-                            <div class="member_data_wrapper">
-                                <p class="activity_done">Anna Silver commented on YourApp´s SEO Tips</p>
-                                <p class="activity_time">4 hours ago</p>
-                            </div>
-                            <p>></p>
-                    </div> 
+            
             </div>
 
         </section>
 
         <section id="message_user">
+
             <h3>MESSAGE USER</h3>
 
-            <input type="text" id="search_user" placeholder="Search for User" name="message_user">
+            <input type="text" id="search_user" placeholder="Search for User" name="message_user" required>
 
-            <input type="text" id="message_for_user" placeholder="Message for User" name="message_user">
+            <textarea id="message_for_user" placeholder="Message for User" name="message_user" required></textarea>
 
-            <button>SEND</button>
+            <button id="send_message" type="submit">SEND</button>
 
         </section>
 
