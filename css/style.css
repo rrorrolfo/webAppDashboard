@@ -15,6 +15,10 @@ h3 {
     margin-bottom: 5px;
 }
 
+p {
+    margin: 0;
+}
+
 /**********   COLORS ****************/
 :root {
     --white-color: rgb(253, 249, 249);
@@ -294,7 +298,6 @@ nav li:hover {
 }
 
 .media_wrapper h4,
-.media_wrapper p,
 .member_email,
 .member_name,
 .date_joined,
@@ -375,6 +378,7 @@ nav li:hover {
 
 /**********  MESSAGE TO USER ****************/
 
+
 #message_user {
     display: flex;
     flex-direction: column;
@@ -398,9 +402,125 @@ nav li:hover {
     height: 120px;
 }
 
-#send_message {
+#send_message,
+#save_settings,
+#cancel_settings {
     background-color: var(--light-blue);
     color: var(--white-color);
     border: none;
     padding: 10px;
+    letter-spacing: 1px;
 }
+
+/**********  SETTINGS SECTION ****************/
+
+#settings {
+    display: flex;
+    flex-direction: column;
+}
+
+.switch_container,
+#timezone,
+#settings_buttons {
+    margin: 5px 20px;
+}
+
+.switch_container {
+    display: flex;
+    align-items: center;
+    width: 50%;
+    margin-bottom: 20px;
+}
+
+.switch_container p {
+    margin-right: auto;
+    font-size: .9rem;
+}
+
+#cancel_settings {
+    background-color: var(--grey-color);
+}
+
+#settings_buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+#save_settings,
+#cancel_settings {
+    border-radius: 5px;
+    flex-basis: 47.5%;
+}
+
+
+/**********  TOOGGLE SWITCH ****************/
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 80px;
+    height: 34px;
+}
+
+.switch input {
+    display:none;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+
+  input:checked + .slider {
+    background-color: var(--light-blue);
+  }
+
+  input:focus + .slider {
+    box-shadow: 0 0 1px var(--light-blue);
+  }
+  
+  input:checked + .slider:before {
+    -webkit-transform: translateX(45px);
+    -ms-transform: translateX(45px);
+    transform: translateX(45px);
+  }
+
+  .slider.round {
+    border-radius: 34px;
+  }
+  
+  .slider.round:before {
+    border-radius: 50%;
+  }
+
+.status_switch {
+    display: inline-block;
+    margin-left: 9px;
+    margin-top: 5px;
+    font-size: .9rem;
+    color: var(--white-color);
+    opacity: 1;
+}
+
+
+  

@@ -237,16 +237,54 @@
 
             <h3>MESSAGE USER</h3>
 
+            <label for="search_user"></label>
             <input type="text" id="search_user" placeholder="Search for User" name="message_user" required>
 
+            <label for="message_for_user"></label>
             <textarea id="message_for_user" placeholder="Message for User" name="message_user" required></textarea>
 
-            <button id="send_message" type="submit">SEND</button>
+            <input id="send_message" type="submit" value="SEND">
 
         </section>
 
-        <section id="settings">
+        <section id="settings" class="separation_top">
 
+            <h3>SETTINGS</h3>
+
+                <div class="switch_container">
+                    <p>Send Email Notifications</p>
+                    <label class="switch">
+                            <input type="checkbox">
+                            <span class="slider round">
+                                <span class="status_switch">ON</span>
+                            </span>
+                    </label>
+                </div>
+
+                <div class="switch_container">
+                    <p>Set Profile to Public</p>
+                    <label class="switch">
+                            <input type="checkbox">
+                            <span class="slider round">
+                                <span class="status_switch">ON</span>
+                            </span>
+                    </label>
+                </div>
+
+            <select id="timezone">
+                    <option value="">Select Timezone</option>
+                    <option value="GMT-10:00">(GMT-10:00) Hawaii</option>
+                    <option value="GMT-05:00">(GMT-05:00) Guadalajara, Mexico City, Monterrey</option>
+                    <option value="GMT-04:00">(GMT-04:00) Brazil</option>
+                    <option value="GMT+02:00">(GMT+02:00) Brussels, Copenhagen, Madrid, Paris</option>
+                    <option value="GMT+03:00">(GMT+03:00) Moscow, St. Petersburg, Volgograd</option>
+                    <option value="GMT+09:00">(GMT+09:00) Seoul</option>
+            </select>
+
+            <div id="settings_buttons">
+                <button id="save_settings">SAVE</button>
+                <button id="cancel_settings">CANCEL</button>
+            </div>
         </section>
     </main>
 
