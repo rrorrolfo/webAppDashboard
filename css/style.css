@@ -20,6 +20,7 @@ h3 {
     --white-color: rgb(253, 249, 249);
     --light-white: rgb(241, 240, 240);
     --light-grey: rgb(216, 216, 216);
+    --grey-color: rgb(136, 133, 133);
     --dark-blue: #062D36;
     --light-blue: #107B93;
 }
@@ -296,7 +297,9 @@ nav li:hover {
 .media_wrapper p,
 .member_email,
 .member_name,
-.date_joined {
+.date_joined,
+.activity_done,
+.activity_time {
     margin: 0;
 }
 
@@ -311,7 +314,12 @@ nav li:hover {
     display: flex;
     margin: 0;
     border-bottom: 2px solid var(--light-white);
-    padding: 10px 0 10px 20px;
+    padding-bottom: 10px;
+    margin-left: 20px;
+}
+
+.member:first-child {
+    padding-top: 15px;
 }
 
 .member img {
@@ -329,9 +337,38 @@ nav li:hover {
 
 .member_email {
     color: var(--light-blue);
-    margin-top: -10px;
+    margin-top: -5px;
+    font-size: .9rem;
 }
 
 .date_joined{
     flex-basis: 20%;
+    color: var(--grey-color);
+    font-size: .85rem;
+}
+
+
+/**********  MEMBER ACTIVITY ****************/
+
+.activity_time {
+    margin-top: -5px;
+    font-size: .9rem;
+    color: var(--grey-color);
+}
+
+#output_activity .member_data_wrapper {
+    flex-basis: 75%;
+}
+
+.activity_details {
+    font-size: 2rem;
+    flex-basis: 5%;
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-right: 10px;
+    color: var(--light-blue);
+}
+
+.activity_details:hover {
+    cursor: pointer;
 }

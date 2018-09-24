@@ -147,3 +147,66 @@ function printMembers() {
 }
 
 printMembers();
+
+
+//////////////  MEMBERS ACTIVITY SECTION /////////////
+
+const output_activity = document.querySelector("#output_activity");
+
+const members_activity = [
+  {
+    name: "Jonas Ibsen",
+    action: "commented",
+    sectionOfActivity: "YourApp´s SEO Tips",
+    timeOfActivity: 4,
+    timeUnit: "hours",
+    photo: "images/jonas.jpg" 
+},
+{
+  name: "Victoria Adler",
+  action: "commented",
+  sectionOfActivity: "Facebook´s changes for 2016",
+  timeOfActivity: 5,
+  timeUnit: "hours",
+  photo: "images/victoria.jpg" 
+},
+{
+  name: "Daniel Benson",
+  action: "commented",
+  sectionOfActivity: "Facebook´s changes for 2016",
+  timeOfActivity: 7,
+  timeUnit: "hours",
+  photo: "images/daniel.jpg" 
+},
+{
+  name: "Leia Star",
+  action: "commented",
+  sectionOfActivity: "YourApp´s SEO Tips",
+  timeOfActivity: 1,
+  timeUnit: "day",
+  photo: "images/leia.jpg" 
+},
+]
+
+function print_activity () {
+
+  const activity = [];
+  let output = " ";
+
+  for (let i = 0; i < members_activity.length; i += 1) {
+    output = '<div class="member">'
+    output += '<img src="' + members_activity[i]["photo"] + '">'
+    output += '<div class="member_data_wrapper">'
+    output += '<p class="activity_done">' + members_activity[i]["name"] + ' ' + members_activity[i]["action"] + ' on ' + members_activity[i]["sectionOfActivity"] + '</p>'
+    output += '<p class="activity_time">' + members_activity[i]["timeOfActivity"] + ' ' + members_activity[i]["timeUnit"] + ' ago</p>'
+    output += '</div><p class="activity_details">></p></div>'
+
+    activity.push(output);
+  }
+
+  output_activity.innerHTML = activity;
+}
+
+print_activity();
+
+

@@ -220,25 +220,34 @@
         <section id="new_members" class="separation_top">
             <h3>NEW MEMBERS</h3>
             <div id="output_members">
-                <div class="member">
-                    <img src="images/anna.jpg">
-                    <div class="member_data_wrapper">
-                        <p class="member_name">Anna Silver</p>
-                        <p class="member_email">email@example.net</p>
-                    </div>
-                    <p class="date_joined">15/15/18</p>
-                </div>
+                
             </div>
 
         </section>
 
         <section id="recent_activity">
             <h3>RECENT ACTIVITY</h3>
-            <div></div>
+            <div id="output_activity">
+                    <div class="member">
+                            <img src="images/anna.jpg">
+                            <div class="member_data_wrapper">
+                                <p class="activity_done">Anna Silver commented on YourApp´s SEO Tips</p>
+                                <p class="activity_time">4 hours ago</p>
+                            </div>
+                            <p>></p>
+                    </div> 
+            </div>
 
         </section>
 
-        <section id="contact_form">
+        <section id="message_user">
+            <h3>MESSAGE USER</h3>
+
+            <input type="text" id="search_user" placeholder="Search for User" name="message_user">
+
+            <input type="text" id="message_for_user" placeholder="Message for User" name="message_user">
+
+            <button>SEND</button>
 
         </section>
 
@@ -246,9 +255,11 @@
 
         </section>
     </main>
+
     <script
   src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
     <script src="js/charts.js"></script>
+
   </body>
 </html>
