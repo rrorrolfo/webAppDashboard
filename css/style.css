@@ -325,6 +325,12 @@ nav li:hover {
     padding-top: 15px;
 }
 
+.member:last-child {
+    border: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
 .member img {
     height: 50px;
     width: 50px;
