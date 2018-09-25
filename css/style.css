@@ -27,6 +27,7 @@ p {
     --grey-color: rgb(136, 133, 133);
     --dark-blue: #062D36;
     --light-blue: #107B93;
+    --green-color: #3cba9f;
 }
 
 /**********   GRID LAYOUT ****************/
@@ -68,7 +69,7 @@ header,
 #user,
 #search_bar h2,
 #search_bar div,
-.channel_stats {
+.channel_stats{
     display: flex;
     align-items: center;
 }
@@ -235,6 +236,37 @@ nav li:hover {
 }
 
 /**********  POINTS CHART ****************/
+
+        /*  TIMEFRAME MENU FOR CHART */
+
+        #timeframe_menu,
+        #area_overview div  {
+            display: flex;
+        }
+
+        #area_overview h3 {
+            margin-right: auto;
+        }
+
+        #timeframe_menu {
+            margin-right: 20px;
+            flex-basis: 30%;
+            justify-content: space-between;
+        }
+
+        #timeframe_menu li {
+            display: inline-block;
+            margin-top: 2.5px;
+            padding: 0 10px;
+            border-radius: 15px;
+            font-size: .9rem;
+        }
+
+        #timeframe_menu li:hover {
+            background-color: var(--green-color);
+            color: var(--white-color);
+            cursor: default;
+        }
 
 #area-chart,
 #donut_chart,
