@@ -1,6 +1,42 @@
 
 
-///////////   Alerts  /////////////////
+////////////// NOTIFICATIONS  /////////////
+
+
+    /// SHOW NOTIFICATIONS
+
+const $bell = $(".bell");
+const $notification_output = $(".notification_output");
+const $notification = $("notification_container");
+const $notification_message = $(".notification_message");
+const $close_notification = $(".close_notification");
+
+
+$bell.click( () => {
+  $notification_output.slideDown({
+    duration: 600
+});
+});
+
+  /// REMOVE NOTIFICATIONS
+
+  $(".close_notification").click((event) => {
+
+    for (let i = 0 ; i < $notification_message.length ; i += 1) {
+
+      if (event.target.previousElementSibling.innerHTML == $notification_message[i].innerHTML) {
+
+        const parent = $notification_message[i].parentNode.parentNode;
+        const child = $notification_message[i].parentNode;
+
+        parent.removeChild(child);
+
+      }
+    }
+});
+
+
+///////////   ALERTS  /////////////////
 
 const $alert_message = $("#alerts");
 const $close_alert = $("#close_alert");
@@ -83,7 +119,6 @@ timeFrameMenu.addEventListener("click", (event) => {
 });
 
 print_area_chart(dataset_daily, xlabels_daily);
-console.log(print_area_chart(dataset_daily, xlabels_daily))
 
 ////////////// DONUT CHART /////////////
 
@@ -112,8 +147,8 @@ new Chart(document.querySelector("#donut_chart"), {
       legend: {
         position: "right",
         labels: {
-          boxWidth: 16,
-          fontSize: 16,
+          boxWidth: 14,
+          fontSize: 14,
           padding: 15
           
         }

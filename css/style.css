@@ -3,6 +3,7 @@
 * {
     box-sizing: border-box;
     font-family: 'Trirong', serif;
+    letter-spacing: .5px;
 }
 
 ul {
@@ -69,7 +70,10 @@ header,
 #user,
 #search_bar h2,
 #search_bar div,
-.channel_stats{
+.channel_stats,
+#notifications_wrapper,
+.notification_output,
+.notification_container {
     display: flex;
     align-items: center;
 }
@@ -98,8 +102,9 @@ header {
 }
 
 
-.bell{
+.notifications_wrapper {
     margin-right: 10px;
+    position: relative;
 }
 
 #user {
@@ -119,6 +124,57 @@ header {
     display: none;
 }
 
+/**********   NOTIFICATIONS  ****************/
+
+.notification_output {
+    position: absolute;
+    top: 55px;
+    right: 20px;
+    z-index: 10;
+    flex-direction: column;
+    display: none;
+}
+
+.notification_container {
+    width: 260px;
+    padding: 5px 7px;
+    justify-content: space-between;
+    border:1px solid var(--light-grey);
+}
+
+.notification_message {
+    font-size: .78rem;
+    font-weight: 600;
+    margin-right: auto;
+    margin-left: 5px;
+}
+
+.notification_container::before {
+    content: " ";
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: var(--green-color);
+}
+
+.close_notification {
+    font-size: 1rem;
+    padding: 0 7.5px 0 5px;
+    border-radius: 5px;
+    transition: background-color .6s;
+}
+
+.close_notification:hover {
+    font-weight: 600;
+    color: var(--white-color);
+    background-color: rgb(184, 45, 45);
+    cursor: pointer;
+}
+
+.close_notification,
+.notification_output {
+    background-color: var(--white-color);
+}
 
 /**********  NAV ****************/
 
