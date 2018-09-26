@@ -254,15 +254,18 @@ nav li:hover {
             justify-content: space-between;
         }
 
-        #timeframe_menu li {
+        #timeframe_menu button {
             display: inline-block;
             margin-top: 2.5px;
             padding: 0 10px;
             border-radius: 15px;
             font-size: .9rem;
+            background-color: var(--white-color);
+            border: none;
         }
 
-        #timeframe_menu li:hover {
+        #timeframe_menu button:hover,
+        #timeframe_menu button:focus {
             background-color: var(--green-color);
             color: var(--white-color);
             cursor: default;
