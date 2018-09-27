@@ -25,9 +25,7 @@ const $green_dot = $("#green_dot")
     /// SHOW NOTIFICATIONS
 
 $bell.click( () => {
-  $notification_output.slideDown({
-    duration: 600
-  });
+  $notification_output.slideDown(600);
 });
 
   /// REMOVE NOTIFICATIONS
@@ -53,14 +51,10 @@ $bell.click( () => {
 const $alert_message = $("#alerts");
 const $close_alert = $("#close_alert");
 
-$(document).ready($alert_message.show({
-    duration: 900
-}))
+$(document).ready($alert_message.show(900));
 
 $close_alert.click(() => {
-    $alert_message.hide({
-        duration: 800
-    });
+    $alert_message.hide(800);
 });
 
 
@@ -309,3 +303,55 @@ function print_activity () {
 print_activity();
 
 
+////// MESSAGING A MEMBER FUNCTIOANLITY
+
+const $submit_message = $("#send_message");
+const $search_user = $("#search_user");
+const $message_for_user = $("#message_for_user");
+const $label_search_user = $("label[for='search_user']");
+const $label_message_for_user = $("label[for='message_for_user']");
+const $success_message = $("#message_success");
+
+  // hide succes message
+
+  $success_message.hide();
+
+  // Submit event that activates validation of fields
+
+$submit_message.click((event) => {
+
+  //Remove required decoration if present
+  $search_user.removeClass(["error"]);
+  $message_for_user.removeClass(["error"]);
+  $label_search_user.css("display", "none");
+  $label_message_for_user.css("display", "none");
+  
+
+  // Display required fields decoration
+
+  const field_validation =  (field, label_to_style) => {
+
+    if (field.val() == "") {
+      field.addClass("error");
+      label_to_style.css("display", "block");
+    }
+
+  }
+
+  field_validation($search_user, $label_search_user);
+
+  field_validation($message_for_user, $label_message_for_user);
+
+  event.preventDefault();
+
+  if($message_for_user.val() != "" && $search_user.val() != "") {
+
+    //Reset form fields
+    $search_user.val("");
+    $message_for_user.val("");
+
+  //show success message
+    $success_message.show(900).delay(2000).hide(900);
+  }
+
+})

@@ -272,14 +272,22 @@
 
             <h3>MESSAGE USER</h3>
 
-            <label for="search_user"></label>
-            <input type="text" id="search_user" placeholder="Search for User" name="message_user" required>
+            <form id="message_form">
 
-            <label for="message_for_user"></label>
-            <textarea id="message_for_user" placeholder="Message for User" name="message_user" required></textarea>
+                
+                <input type="text" id="search_user" placeholder="Search for User" name="message_user" class="grey_border" required>
+                <label for="search_user">The name of a user is required</label>
 
-            <input id="send_message" type="submit" value="SEND">
+                <textarea id="message_for_user" placeholder="Message for User" name="message_user" class="grey_border" required></textarea>
+                <label for="message_for_user">A message is required</label>
 
+                <input id="send_message" type="submit" form="message_form" value="SEND">
+
+                <div id="message_success">
+                    <p>Your message has been sent successfully</p>
+                </div>
+
+            </form>
         </section>
 
         <section id="settings" class="separation_top">
