@@ -124,7 +124,45 @@ header {
     display: none;
 }
 
+/**********   BELL  ****************/
+
+@keyframes ring {
+    
+    20% {
+        transform: rotate(25deg);
+    }
+    
+    40% {
+        transform: rotate(-25deg);
+    }
+    
+    60% {
+        transform: rotate(25deg);
+    }
+    
+    80% {
+        transform: rotate(-25deg);
+    }
+}
+
+.bell:hover {
+    animation: ring .75s linear;
+}
+
 /**********   NOTIFICATIONS  ****************/
+
+    /**** Green dot for notifications *****/
+
+    #green_dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background-color: var(--green-color);
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        display: none;
+    }
 
 .notification_output {
     position: absolute;
@@ -136,7 +174,7 @@ header {
 }
 
 .notification_container {
-    width: 260px;
+    width: 270px;
     padding: 5px 7px;
     justify-content: space-between;
     border:1px solid var(--light-grey);

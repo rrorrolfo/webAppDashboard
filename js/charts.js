@@ -2,25 +2,37 @@
 
 ////////////// NOTIFICATIONS  /////////////
 
-
-    /// SHOW NOTIFICATIONS
-
 const $bell = $(".bell");
 const $notification_output = $(".notification_output");
-const $notification = $("notification_container");
+const $notification = $(".notification_container");
 const $notification_message = $(".notification_message");
 const $close_notification = $(".close_notification");
+const $green_dot = $("#green_dot")
 
+  //SHOW GREEN DOT WHEN THERE ARE NOTIFICATIONS
+
+  if ($notification.length != 0) {
+    $green_dot.css("display", "block");
+  }
+
+  // HIDE GREEN DOT WHEN USER CLICKS ON BELL ICON
+
+  $bell.click(() => {
+    $green_dot.css("display", "none")
+  })
+
+
+    /// SHOW NOTIFICATIONS
 
 $bell.click( () => {
   $notification_output.slideDown({
     duration: 600
-});
+  });
 });
 
   /// REMOVE NOTIFICATIONS
 
-  $(".close_notification").click((event) => {
+  $close_notification.click((event) => {
 
     for (let i = 0 ; i < $notification_message.length ; i += 1) {
 
@@ -52,7 +64,7 @@ $close_alert.click(() => {
 });
 
 
-////////////// AREA CHART FUNCTION /////////////
+////////////// AREA CHART /////////////
 
 const dataset_hourly = [125,100,98,67,75,86,90,101,76,65,64,32,37,09, 45, 67, 78, 69, 98, 101, 98,87,78, 89];
 const xlabels_hourly = ["00:00", "01:00", "02:00", "03:00", "04:00", "05:00", "06:00", "07:00", "08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00", "21:00",  "22:00",  "23:00"];
@@ -176,8 +188,7 @@ new Chart(document.querySelector("#bar_chart"), {
     options: {
       legend: { display: false },
       title: {
-        display: false,
-        text: 'DAILY TRAFFIC'
+        display: false
       }
     }
 });
