@@ -555,11 +555,6 @@ nav li:hover {
     display: none;
 }
 
-#message_form label,
-#message_success {
-    
-}
-
     /* ERROR VALIDATION STYLE */
 
     .error {
@@ -579,6 +574,31 @@ nav li:hover {
     #message_success p {
         margin: auto;
     }    
+
+    /*  Autocomplete Styling */
+
+    .background {
+        background-color: var(--white-color);
+        color: var(--dark-blue);
+        border: 1px solid var(--light-blue);
+        border-radius: 5px;
+    }
+
+    .background li {
+        padding-left: 15px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+
+    .background li:hover {
+        background-color: var(--light-white);
+    }
+
+    div[role="status"] {
+        width: 0;
+        height: 0;
+        display: none;
+    }
 
 /**********  SETTINGS SECTION ****************/
 

@@ -216,8 +216,8 @@ const new_members = [
       email: "lyonavera@example.com ",
       dateJoined: new Date('September 17, 2018'),
       photo: "images/lyona.jpg"
-        }
-]
+    }
+];
 
 
 function printMembers() {
@@ -254,32 +254,32 @@ const members_activity = [
     timeOfActivity: 4,
     timeUnit: "hours",
     photo: "images/jonas.jpg" 
-},
-{
-  name: "Victoria Adler",
-  action: "commented",
-  sectionOfActivity: "Facebook´s changes for 2016",
-  timeOfActivity: 5,
-  timeUnit: "hours",
-  photo: "images/victoria.jpg" 
-},
-{
-  name: "Daniel Benson",
-  action: "commented",
-  sectionOfActivity: "Facebook´s changes for 2016",
-  timeOfActivity: 7,
-  timeUnit: "hours",
-  photo: "images/daniel.jpg" 
-},
-{
-  name: "Leia Star",
-  action: "commented",
-  sectionOfActivity: "YourApp´s SEO Tips",
-  timeOfActivity: 1,
-  timeUnit: "day",
-  photo: "images/leia.jpg" 
-},
-]
+  },
+  {
+    name: "Victoria Adler",
+    action: "commented",
+    sectionOfActivity: "Facebook´s changes for 2016",
+    timeOfActivity: 5,
+    timeUnit: "hours",
+    photo: "images/victoria.jpg" 
+  },
+  {
+    name: "Daniel Benson",
+    action: "commented",
+    sectionOfActivity: "Facebook´s changes for 2016",
+    timeOfActivity: 7,
+    timeUnit: "hours",
+    photo: "images/daniel.jpg" 
+  },
+  {
+    name: "Leia Star",
+    action: "commented",
+    sectionOfActivity: "YourApp´s SEO Tips",
+    timeOfActivity: 1,
+    timeUnit: "day",
+    photo: "images/leia.jpg" 
+  }
+];
 
 function print_activity () {
 
@@ -316,42 +316,67 @@ const $success_message = $("#message_success");
 
   $success_message.hide();
 
+   // Search User autocomplete functionality
+
+      /*Function for creating an array containing all the current members of the app */
+
+   const list_current_members = [];
+
+   function current_members (object) {
+     for (let i = 0; i < object.length; i += 1) {
+       list_current_members.push(object[i]["name"]);
+     }
+   }
+
+   current_members(new_members);
+   current_members(members_activity);
+
+   $search_user.autocomplete({
+    source: list_current_members,
+    minLength: 0,
+    classes: {
+      "ui-autocomplete": "background"
+    }
+  });
+
   // Submit event that activates validation of fields
 
 $submit_message.click((event) => {
 
-  //Remove required decoration if present
-  $search_user.removeClass(["error"]);
-  $message_for_user.removeClass(["error"]);
-  $label_search_user.css("display", "none");
-  $label_message_for_user.css("display", "none");
-  
+    //Remove required decoration if present
+    $search_user.removeClass(["error"]);
+    $message_for_user.removeClass(["error"]);
+    $label_search_user.css("display", "none");
+    $label_message_for_user.css("display", "none");
+    
 
-  // Display required fields decoration
+    // Display required fields decoration
 
-  const field_validation =  (field, label_to_style) => {
+    const field_validation =  (field, label_to_style) => {
 
-    if (field.val() == "") {
-      field.addClass("error");
-      label_to_style.css("display", "block");
+      if (field.val() == "") {
+        field.addClass("error");
+        label_to_style.css("display", "block");
+      }
+
     }
 
-  }
+    field_validation($search_user, $label_search_user);
 
-  field_validation($search_user, $label_search_user);
+    field_validation($message_for_user, $label_message_for_user);
 
-  field_validation($message_for_user, $label_message_for_user);
+    event.preventDefault();
 
-  event.preventDefault();
+    // Succesful message display:
 
-  if($message_for_user.val() != "" && $search_user.val() != "") {
+    if($message_for_user.val() != "" && $search_user.val() != "") {
 
-    //Reset form fields
-    $search_user.val("");
-    $message_for_user.val("");
+      //Reset form fields
+      $search_user.val("");
+      $message_for_user.val("");
 
-  //show success message
-    $success_message.show(900).delay(2000).hide(900);
-  }
+    //show success message
+      $success_message.show(900).delay(2000).hide(900);
+    }
 
-})
+});
