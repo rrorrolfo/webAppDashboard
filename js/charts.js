@@ -320,16 +320,18 @@ const $success_message = $("#message_success");
 
       /*Function for creating an array containing all the current members of the app */
 
-   const list_current_members = [];
+      const list_current_members = [];
 
-   function current_members (object) {
-     for (let i = 0; i < object.length; i += 1) {
-       list_current_members.push(object[i]["name"]);
-     }
-   }
+      function current_members (object) {
+        for (let i = 0; i < object.length; i += 1) {
+          list_current_members.push(object[i]["name"]);
+        }
+      }
 
-   current_members(new_members);
-   current_members(members_activity);
+      current_members(new_members);
+      current_members(members_activity);
+
+  // Auto complete 
 
    $search_user.autocomplete({
     source: list_current_members,
@@ -379,4 +381,26 @@ $submit_message.click((event) => {
       $success_message.show(900).delay(2000).hide(900);
     }
 
+});
+
+////// LOCAL STORAGE FUNCTIONALITY
+
+const settings = document.querySelector("#settings");
+const checkboxes = document.querySelectorAll("input[type='checkbox']");
+
+settings.addEventListener("click", () => {
+
+  let a = event.target
+
+  if (event.target.tagName == "INPUT") {
+
+    if (a.parentNode.previousElementSibling.textContent == "Send Email Notifications") {
+      console.log()
+    }
+    
+    console.log(a);
+    console.log(checkboxes);
+    console.log(checkboxes.indexOf(a));
+    localStorage.setItem("checked", event.target.checked)
+  }
 });

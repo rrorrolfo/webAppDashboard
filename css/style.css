@@ -87,8 +87,7 @@ header {
 }
 
 #app_name{
-    margin: 0 auto;
-    
+    margin: 0 auto;  
 }
 
 #app_name span {
@@ -353,6 +352,7 @@ nav li:hover {
         #timeframe_menu button {
             display: inline-block;
             margin-top: 2.5px;
+            margin-left: 10px;
             padding: 0 10px;
             border-radius: 15px;
             font-size: .9rem;
@@ -501,7 +501,7 @@ nav li:hover {
 }
 
 .activity_details {
-    font-size: 2rem;
+    font-size: 1.8rem;
     flex-basis: 5%;
     margin-top: 0;
     margin-bottom: 0;
@@ -544,7 +544,7 @@ nav li:hover {
     background-color: var(--light-blue);
     color: var(--white-color);
     border: none;
-    padding: 10px;
+    padding: 7px;
     letter-spacing: 1px;
 }
 
@@ -613,6 +613,11 @@ nav li:hover {
     margin: 5px 20px;
 }
 
+#timezone {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
 .switch_container {
     display: flex;
     align-items: center;
@@ -632,7 +637,7 @@ nav li:hover {
 #settings_buttons {
     display: flex;
     justify-content: space-between;
-    margin-top: 20px;
+    margin-top: 25px;
 }
 
 #save_settings,
@@ -708,6 +713,189 @@ nav li:hover {
     font-size: .9rem;
     color: var(--white-color);
     opacity: 1;
+}
+
+
+/***********    MEDIA QUERIES  ***************/
+
+@media (min-width: 768px) {
+
+    #app_name{
+        margin-left: 70px;  
+    }
+
+    #user * {
+        display: block;
+    }
+
+    #user {
+        padding: 5px 20px 5px 10px;
+        border-left: 1px solid var(--light-grey);
+    }
+
+    .bell {
+        margin-right: 10px;
+    }
+
+    #green_dot {
+        right: 220px;
+    }
+
+    .media_icon_1 {
+        height: 35px;
+        width: 35px;
+        margin-top: 12px;
+    }
+
+    .media_icon_2 {
+        width: 30px;
+        height: 30px;
+        margin-top: 18px;
+    }
+
+    .media_wrapper h4{
+        font-size: 1rem;
+    }
+
+    .media_wrapper p {
+        font-size: 1.8rem;
+    }
+
+    .channel_stats {
+        height: 100px;
+    }
+
+    .icon_wrapper {
+        width: 60px;
+        height: 60px;
+        margin-right: 10%;
+        margin-left: 7%;
+    }
+}
+
+@media (min-width: 1024px) {
+
+
+    #app_name {
+        font-size: 2.3rem;
+    }
+
+    #user p {
+        font-size: 1.2rem;
+    }
+
+    #green_dot {
+        right: 231px;
+    }
+
+    #magnifier-image {
+        right: 3%;
+    }
+
+    /*** Chart menu timeframe  ***/
+
+    #timeframe_menu button {
+        margin-left: 0;
+    }
+
+    /** CHARTS***/
+
+    #area-chart,
+    #donut_chart,
+    #bar_chart {
+        max-height: 400px;
+    }
+
+    #donut_overview,
+    #bar_overview {
+        width: 50%;
+        padding-bottom: 20px;
+    }
+
+    #charts_wrapper {
+        display: flex;
+    }
+
+    #bar_overview {
+        order: 1;
+    }
+
+    #donut_overview {
+        order: 2;
+        border-left: 1px solid var(--light-grey);
+        margin-bottom: 0;
+    }
+
+    #bar_chart {
+        margin-top: 20px;
+    }
+
+    /****  SOCIAL STATS ***/
+
+    #social_stats {
+        margin-top: 0;
+    }
+
+    .channel_stats {
+        flex-basis: 27%;
+        height: 110px;
+    }
+
+    .media_icon_1 {
+        height: 40px;
+        width: 40px;
+        margin-top: 14px;
+    }
+
+    .media_icon_2 {
+        width: 35px;
+        height: 35px;
+        margin-top: 20px;
+    }
+
+    .media_wrapper h4{
+        font-size: 1.1rem;
+    }
+
+    .media_wrapper p {
+        font-size: 2rem;
+    }
+
+    .icon_wrapper {
+        width: 70px;
+        height: 70px;
+        margin-right: 10%;
+        margin-left: 7%;
+    }
+
+    /* MEMBERS SECTIONS */
+
+    #members_sections_wrapper {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    #members_sections_wrapper section {
+        flex-basis: 50%;
+        padding-right: 20px;
+    }
+
+    #members_sections_wrapper section:nth-child(even) {
+        border-left: 1px solid var(--light-grey);
+    }
+
+    #members_sections_wrapper section:nth-child(n+3) {
+        margin-top: 0;
+        margin-bottom: 0;
+        padding-top: 10px;
+        padding-bottom: 20px;
+
+    }
+
+    #members_sections_wrapper section:nth-child(-n+2) {
+        margin-bottom: 0;
+        padding-bottom: 30px;
+    }
 }
 
 
