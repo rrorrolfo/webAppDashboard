@@ -24,8 +24,20 @@ const $green_dot = $("#green_dot")
 
     /// SHOW NOTIFICATIONS
 
+let clicks = 0;
+
 $bell.click( () => {
+
+  if(clicks == 0) {
   $notification_output.slideDown(600);
+  clicks += 1;
+  }
+    // hide notifications
+
+  else {
+    $notification_output.slideUp(600);
+    clicks -=1;
+  }
 });
 
   /// REMOVE NOTIFICATIONS
@@ -395,12 +407,8 @@ settings.addEventListener("click", () => {
   if (event.target.tagName == "INPUT") {
 
     if (a.parentNode.previousElementSibling.textContent == "Send Email Notifications") {
-      console.log()
     }
     
-    console.log(a);
-    console.log(checkboxes);
-    console.log(checkboxes.indexOf(a));
     localStorage.setItem("checked", event.target.checked)
   }
 });
