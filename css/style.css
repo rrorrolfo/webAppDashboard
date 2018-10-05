@@ -366,7 +366,11 @@ nav li:hover {
             cursor: default;
         }
 
-#area-chart,
+
+#area-chart-h,
+#area-chart-d,
+#area-chart-w,
+#area-chart-m,
 #donut_chart,
 #bar_chart {
     max-width: 100%;
@@ -799,7 +803,6 @@ nav li:hover {
 
     /** CHARTS***/
 
-    #area-chart,
     #donut_chart,
     #bar_chart {
         max-height: 400px;

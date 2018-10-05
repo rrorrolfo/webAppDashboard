@@ -72,8 +72,8 @@ $close_alert.click(() => {
 
 ////////////// AREA CHART /////////////
 
-const dataset_hourly = [125,100,98,67,75,86,90,101,76,65,64,32,37,09, 45, 67, 78, 69, 98, 101, 98,87,78, 89];
-const xlabels_hourly = ["00:00", "01:00", "02:00", "03:00", "04:00", "05:00", "06:00", "07:00", "08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00", "21:00",  "22:00",  "23:00"];
+const dataset_hourly = [125,100,98,67,75,86,90,101,76,65,64,32];
+const xlabels_hourly = ["00:00", "02:00", "04:00", "06:00", "08:00", "10:00", "12:00", "14:00", "16:00", "18:00", "20:00",  "22:00"];
 
 const dataset_daily = [1345,2895,1935,2101,1875,2500, 2978];
 const xlabels_daily = ["Monday", "Tuesday","Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
@@ -86,9 +86,9 @@ const xlabels_monthly = ["May", "June", "July", "August", "September", "October"
 
     ////////Function to print an area chart /////////
 
-function print_area_chart (data, xlabels) {
+function print_area_chart (data, xlabels, location) {
 
-    let area_chart = new Chart(document.querySelector("#area-chart"), {
+    let area_chart = new Chart(document.querySelector(location), {
       type: 'line',
       data: {
           
@@ -124,19 +124,49 @@ function print_area_chart (data, xlabels) {
 const timeFrameMenu = document.querySelector("#timeframe_menu");
 const timeFrameList = document.querySelectorAll("#timeframe_menu button");
 
+const chart_hourly = document.querySelector("area-chart-h");
+const chart_daily = document.querySelector("area-chart-w");
+const chart_weekly = document.querySelector("area-chart-d");
+const chart_monthly = document.querySelector("area-chart-m");
+
+const charts_canvas = document.querySelectorAll(".canvas");
+
+function hide_charts () {
+  for (let i = 0 ; i < charts_canvas.length; i += 1) {
+    charts_canvas[i].style.display = "none";
+  }
+}
+
+  // Hide all charts except daily
+
+hide_charts();
+
+charts_canvas[1].style.display = "block";
+print_area_chart(dataset_daily, xlabels_daily, "#area-chart-d");
+
+  // TIMEFRAME BUTTONS FUNCTIONALITY
+
 timeFrameMenu.addEventListener("click", (event) => {
   if (event.target === timeFrameList[0]) {
-    print_area_chart(dataset_hourly, xlabels_hourly);
+    hide_charts();
+    print_area_chart(dataset_hourly, xlabels_hourly, "#area-chart-h");
+    charts_canvas[0].style.display = "block";
   } else if (event.target === timeFrameList[1]) {
-    print_area_chart(dataset_daily, xlabels_daily);
+    hide_charts();
+    print_area_chart(dataset_daily, xlabels_daily, "#area-chart-d");
+    charts_canvas[1].style.display = "block";
   } else if (event.target === timeFrameList[2]) {
-    print_area_chart(dataset_weekly, xlabels_weekly);
+    hide_charts();
+    print_area_chart(dataset_weekly, xlabels_weekly, "#area-chart-w");
+    charts_canvas[2].style.display = "block";
   } else if (event.target === timeFrameList[3]) {
-    print_area_chart(dataset_monthly, xlabels_monthly);
+    hide_charts();
+    print_area_chart(dataset_monthly, xlabels_monthly, "#area-chart-m");
+    charts_canvas[3].style.display = "block";
   } 
 });
 
-print_area_chart(dataset_daily, xlabels_daily);
+
 
 ////////////// DONUT CHART /////////////
 
@@ -412,3 +442,11 @@ settings.addEventListener("click", () => {
     localStorage.setItem("checked", event.target.checked)
   }
 });
+
+
+//try assigning the status with se localstorage, and then you need to retrieve the saved status and  add it to the checkbos item
+
+
+if (window.screen.width >= 1024 && window.screen.height >= 768) {
+  
+}
