@@ -428,25 +428,65 @@ $submit_message.click((event) => {
 ////// LOCAL STORAGE FUNCTIONALITY
 
 const settings = document.querySelector("#settings");
-const checkboxes = document.querySelectorAll("input[type='checkbox']");
+const email_notifications = document.querySelector(".email_notifications");
+const public_profile = document.querySelector(".public_profile");
 
-settings.addEventListener("click", () => {
+let c = "";
+let d = "";
 
-  let a = event.target
 
-  if (event.target.tagName == "INPUT") {
+  // Check if local storage is supported
 
-    if (a.parentNode.previousElementSibling.textContent == "Send Email Notifications") {
-    }
-    
-    localStorage.setItem("checked", event.target.checked)
+function supportsLocalStorage() {
+  try {
+    return "localStorage" in window && window["localStorage"] != null
+  } catch(e) {
+    return false;
   }
-});
+}
 
+  // Get counter function
 
-//try assigning the status with se localstorage, and then you need to retrieve the saved status and  add it to the checkbos item
+function getCounter (counter) {
+  counter = localStorage.getItem("input_num");
+  if(counter) {
+    return JSON.parse(counter);
+  }
+}
 
+  //Event listener for saving checkbox selection in local storage
 
-if (window.screen.width >= 1024 && window.screen.height >= 768) {
-  
+if( supportsLocalStorage()) {
+
+  settings.addEventListener("click", () => {
+
+    let a = event.target
+    
+
+    if (a.className == "email_notifications") {
+
+      if (c === 0) {
+        email_notifications.setAttribute("checked", "");
+        c += 1;
+      } else if (c === 1) {
+        email_notifications.removeAttribute("checked");
+        c -=1;
+      }
+
+      localStorage.setItem("input_num", c);
+    }
+  });
+}
+
+  // Load selection in checboxes from local storage
+
+window.onload = function () {
+  c = getCounter(c);
+
+  if (c === 1) {
+    email_notifications.setAttribute("checked", "");
+  } else if (c === 0) {
+    email_notifications.removeAttribute("checked");
+  }
+
 }
