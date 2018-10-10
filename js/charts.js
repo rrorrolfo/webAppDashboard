@@ -431,10 +431,6 @@ const settings = document.querySelector("#settings");
 const email_notifications = document.querySelector(".email_notifications");
 const public_profile = document.querySelector(".public_profile");
 
-let c = "";
-let d = "";
-
-
   // Check if local storage is supported
 
 function supportsLocalStorage() {
@@ -445,48 +441,58 @@ function supportsLocalStorage() {
   }
 }
 
-  // Get counter function
-
-function getCounter (counter) {
-  counter = localStorage.getItem("input_num");
-  if(counter) {
-    return JSON.parse(counter);
-  }
-}
-
-  //Event listener for saving checkbox selection in local storage
+  //Event listener for saving checkboxes selection in local storage
 
 if( supportsLocalStorage()) {
 
   settings.addEventListener("click", () => {
 
     let a = event.target
-    
 
     if (a.className == "email_notifications") {
 
-      if (c === 0) {
-        email_notifications.setAttribute("checked", "");
-        c += 1;
-      } else if (c === 1) {
+      if (!email_notifications.checked) {
         email_notifications.removeAttribute("checked");
-        c -=1;
+        localStorage.removeItem("checked");
+      } else if (email_notifications.checked) {
+        email_notifications.setAttribute("checked", "");
+        localStorage.setItem("checked", true);
       }
-
-      localStorage.setItem("input_num", c);
+ 
     }
+
+    if (a.className == "public_profile") {
+
+      if (!public_profile.checked) {
+        public_profile.removeAttribute("checked");
+        localStorage.removeItem("checked_public_profile");
+      } else if (public_profile.checked) {
+        public_profile.setAttribute("checked", "");
+        localStorage.setItem("checked_public_profile", true);
+      }
+ 
+    }
+
   });
 }
 
   // Load selection in checboxes from local storage
 
 window.onload = function () {
-  c = getCounter(c);
 
-  if (c === 1) {
-    email_notifications.setAttribute("checked", "");
-  } else if (c === 0) {
-    email_notifications.removeAttribute("checked");
+  let email_notification_status = localStorage.getItem("checked");
+  let public_profile_status = localStorage.getItem("checked_public_profile");
+
+  function is_in_locaStorage (key , setting) {
+
+    if (key) {
+      setting.setAttribute("checked", "");
+    } else {
+      setting.removeAttribute("checked");
+    }
+
   }
+
+  is_in_locaStorage(email_notification_status, email_notifications);  is_in_locaStorage(public_profile_status, public_profile);
 
 }
