@@ -445,7 +445,7 @@ function supportsLocalStorage() {
 
 if( supportsLocalStorage()) {
 
-  settings.addEventListener("click", () => {
+  settings.addEventListener("click", (event) => {
 
     let a = event.target
 
@@ -476,7 +476,26 @@ if( supportsLocalStorage()) {
   });
 }
 
-  // Load selection in checboxes from local storage
+// Timezone loca storage functionality
+
+const timezone = document.querySelector("#timezone"); 
+const timezone_options = document.querySelectorAll("option");
+
+let selected_timezone;
+
+timezone.addEventListener("change" , () => {
+
+  for (let i = 0; i < timezone_options.length; i += 1) {
+    timezone_options[i].removeAttribute("selected");
+  }
+
+  selected_timezone = timezone.selectedIndex; 
+  timezone_options[selected_timezone].setAttribute("selected", "");
+
+  localStorage.setItem("selected_timezone", selected_timezone)
+});
+
+  // Load selection in checboxes and timezone from local storage
 
 window.onload = function () {
 
@@ -493,6 +512,20 @@ window.onload = function () {
 
   }
 
-  is_in_locaStorage(email_notification_status, email_notifications);  is_in_locaStorage(public_profile_status, public_profile);
+  is_in_locaStorage(email_notification_status, email_notifications);
+  is_in_locaStorage(public_profile_status, public_profile);
+
+  selected_timezone = localStorage.getItem("selected_timezone");
+
+  if(selected_timezone !== null) {
+  timezone_options[selected_timezone].setAttribute("selected", "");
+  } 
+
+
+  if(selected_timezone) {
+    return JSON.parse(selected_timezone)
+  } else {
+    return 0
+  }
 
 }
