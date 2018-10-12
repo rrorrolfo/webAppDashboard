@@ -366,6 +366,9 @@ nav li:hover {
             cursor: default;
         }
 
+#canvas_container {
+    height: 45vh;
+}
 
 #area-chart-h,
 #area-chart-d,

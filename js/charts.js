@@ -105,6 +105,7 @@ function print_area_chart (data, xlabels, location) {
       },
 
       options: {
+              maintainAspectRatio: false,
               legend: { display: false },
               elements: {
                 line: {
