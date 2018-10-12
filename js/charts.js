@@ -138,6 +138,14 @@ function hide_charts () {
   }
 }
 
+function add_styling_timeframe () {
+  for (let i = 0; i < timeFrameList.length; i +=1) {
+    timeFrameList[i].className = " ";
+  }
+
+  event.target.className = "selected_timeframe"
+}
+
   // Hide all charts except daily
 
 hide_charts();
@@ -152,18 +160,22 @@ timeFrameMenu.addEventListener("click", (event) => {
     hide_charts();
     print_area_chart(dataset_hourly, xlabels_hourly, "#area-chart-h");
     charts_canvas[0].style.display = "block";
+    add_styling_timeframe();
   } else if (event.target === timeFrameList[1]) {
     hide_charts();
     print_area_chart(dataset_daily, xlabels_daily, "#area-chart-d");
     charts_canvas[1].style.display = "block";
+    add_styling_timeframe();
   } else if (event.target === timeFrameList[2]) {
     hide_charts();
     print_area_chart(dataset_weekly, xlabels_weekly, "#area-chart-w");
     charts_canvas[2].style.display = "block";
+    add_styling_timeframe();
   } else if (event.target === timeFrameList[3]) {
     hide_charts();
     print_area_chart(dataset_monthly, xlabels_monthly, "#area-chart-m");
     charts_canvas[3].style.display = "block";
+    add_styling_timeframe();
   } 
 });
 
